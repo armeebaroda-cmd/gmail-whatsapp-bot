@@ -1,0 +1,62 @@
+# ============================================================
+#  Gmail Telegram Summary Bot — GitHub Actions Workflow
+#  Runs every hour, 24/7, even when your PC is off.
+#  Uses Telegram Bot API (FREE, works in India, no restrictions)
+# ============================================================
+
+name: Gmail WhatsApp Hourly Summary
+
+on:
+  # ── Automatic: every hour at :30 past (UTC) ──────────────
+  schedule:
+    - cron: '30 * * * *'
+
+  # ── Manual: click "Run workflow" in GitHub Actions UI ────
+  workflow_dispatch:
+
+# Needed so the workflow can commit state.json back to the repo
+permissions:
+  contents: write
+
+jobs:
+  send-summary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # 1. Check out the repository (includes state.json)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. Set up Python 3.11
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # 3. Install dependencies (only 'requests')
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # 4. Run the bot
+      - name: Run Gmail Telegram Summary Bot
+        env:
+          GMAIL_ADDRESS:       ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD:  ${{ secrets.GMAIL_APP_PASSWORD }}
+          TELEGRAM_BOT_TOKEN:  ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py
+
+      # 5. Commit the updated state.json back to the repo
+      #    [skip ci] prevents this commit triggering another run
+      - name: Save bot state
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git pull origin main --rebase
+          git add state.json
+          git diff --staged --quiet || git commit -m "chore: update bot state [skip ci]"
+          git push
