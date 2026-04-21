@@ -1,32 +1,75 @@
 """
-notification_sender.py — Message formatters for both Telegram and WhatsApp.
-The bot now uses Telegram by default (free, no country restrictions).
-WhatsApp/CallMeBot kept here as legacy fallback.
+whatsapp_sender.py — Telegram HTML message formatter for Gmail Summary Bot.
+Formats emails into clean, well-aligned Telegram messages using HTML parse mode.
 """
-import urllib.parse
-import requests
 import time
+import requests
 
 from config import (
-    WHATSAPP_PHONE,
-    CALLMEBOT_API_KEY,
-    MAX_EMAILS_PER_SECTION,
-    MAX_SUBJECT_LEN,
-    MAX_ACTION_LEN,
     TELEGRAM_BOT_TOKEN,
     TELEGRAM_CHAT_ID,
+    MAX_EMAILS_PER_SECTION,
 )
 
-CALLMEBOT_URL = "https://api.callmebot.com/whatsapp.php"
-WA_MAX_CHARS  = 4000
+TG_MAX_CHARS = 4000
+
+
+# ─── HTML Helpers ─────────────────────────────────────────────────────────────
+
+def _b(text: str) -> str:
+    """Bold text in Telegram HTML."""
+    return f"<b>{_esc(text)}</b>"
+
+def _i(text: str) -> str:
+    """Italic text in Telegram HTML."""
+    return f"<i>{_esc(text)}</i>"
+
+def _esc(text: str) -> str:
+    """Escape HTML special characters for Telegram."""
+    return str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+def _trunc(text: str, limit: int) -> str:
+    """Truncate long text with ellipsis."""
+    text = str(text).strip()
+    return text[:limit] + "…" if len(text) > limit else text
+
+
+# ─── Email Number Badges ──────────────────────────────────────────────────────
+
+EMOJI_NUMS = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"]
+
+def _num(n: int) -> str:
+    return EMOJI_NUMS[n - 1] if 1 <= n <= 10 else f"{n}."
 
 
 # ─── Message Formatter ────────────────────────────────────────────────────────
 
 def format_whatsapp_message(summaries: list, from_time: str, to_time: str) -> str:
     """
-    Build the formatted WhatsApp summary string.
-    Uses WhatsApp's supported markdown: *bold*, _italic_.
+    Build a clean, aligned Gmail summary message in Telegram HTML format.
+
+    Layout example:
+    ┌──────────────────────────────────┐
+    │ 📧 GMAIL SUMMARY                 │
+    │ 🕐 02:30 PM → 03:30 PM | 12 mails│
+    │ 🔴 3  🟡 6  🟢 3                 │
+    │                                  │
+    │ 🔴 URGENT — Reply Needed (3)     │
+    │ ──────────────────────────────── │
+    │ 1️⃣  Jinal Ranapariya             │
+    │    📌 OEM Ticket Escalation       │
+    │    ↳ Customer needs reply ASAP   │
+    │                                  │
+    │ 🟡 ACTION NEEDED (6)             │
+    │ ...                              │
+    │                                  │
+    │ 💬 HOW TO REPLY                  │
+    │ To reply to email 1️⃣:            │
+    │ • Open Gmail → Compose new email │
+    │ • To: jignesh.patel@armeeinf...  │
+    │ • Subject: BOT-REPLY-1           │
+    │ • Body: your reply message       │
+    └──────────────────────────────────┘
     """
     urgent = [s for s in summaries if s["priority"] == "URGENT"]
     action = [s for s in summaries if s["priority"] == "ACTION"]
@@ -34,88 +77,82 @@ def format_whatsapp_message(summaries: list, from_time: str, to_time: str) -> st
 
     lines = []
 
-    # ── Header ──────────────────────────────────────────────────
-    lines.append("📧 *GMAIL HOURLY SUMMARY*")
-    lines.append(f"🕐 {from_time} – {to_time}  |  {len(summaries)} New Email{'s' if len(summaries) != 1 else ''}")
+    # ── Header ────────────────────────────────────────────────────────────────
+    lines.append("📧 " + _b("GMAIL HOURLY SUMMARY"))
+    lines.append(f"🕐 {_b(from_time)}  →  {_b(to_time)}")
+    lines.append(
+        f"📊 Total: {_b(str(len(summaries)))} emails"
+        f"  |  🔴 {_b(str(len(urgent)))}"
+        f"  🟡 {_b(str(len(action)))}"
+        f"  🟢 {_b(str(len(info)))}"
+    )
     lines.append("")
 
-    def _trunc(text: str, limit: int) -> str:
-        return text[:limit] + "…" if len(text) > limit else text
-
+    # ── Section builder ───────────────────────────────────────────────────────
     def add_section(emoji: str, title: str, items: list, max_show: int):
         if not items:
             return
-        lines.append(f"{'━' * 22}")
-        lines.append(f"{emoji} *{title}* ({len(items)})")
-        lines.append(f"{'━' * 22}")
+        lines.append(f"{emoji} {_b(f'{title}  ({len(items)})')}")
+        lines.append("─" * 32)
         for em in items[:max_show]:
-            subj   = _trunc(em["subject"],     MAX_SUBJECT_LEN)
-            action = _trunc(em["action_text"], MAX_ACTION_LEN)
-            lines.append(f"*{em['index']}.* {em['from_name']}")
-            lines.append(f"   📌 {subj}")
-            lines.append(f"   ↳ {action}")
+            idx    = em["index"]
+            name   = _trunc(em["from_name"],   30)
+            subj   = _trunc(em["subject"],      55)
+            action = _trunc(em["action_text"], 110)
+            lines.append(f"{_num(idx)}  {_b(name)}")
+            lines.append(f"    📌 {_esc(subj)}")
+            lines.append(f"    ↳ {_i(action)}")
             lines.append("")
         if len(items) > max_show:
-            lines.append(f"   _...and {len(items) - max_show} more {title.lower()} email(s)._")
+            remaining = len(items) - max_show
+            lines.append(_i(f"    ... and {remaining} more {title.lower()} email(s)"))
             lines.append("")
 
-    add_section("🔴", "URGENT – Reply Needed", urgent, MAX_EMAILS_PER_SECTION)
+    add_section("🔴", "URGENT — Reply Needed", urgent, MAX_EMAILS_PER_SECTION)
     add_section("🟡", "ACTION NEEDED",          action, MAX_EMAILS_PER_SECTION)
     add_section("🟢", "INFO ONLY",              info,   3)
 
-    # ── Reply instructions ────────────────────────────────────────
-    lines.append(f"{'━' * 22}")
-    lines.append("💬 *To reply to an email:*")
-    lines.append("Send yourself an email:")
-    lines.append("  Subject:  BOT-REPLY-[number]")
-    lines.append("  Body:     Your reply message")
+    # ── Reply Instructions ────────────────────────────────────────────────────
+    lines.append("─" * 32)
+    lines.append("💬 " + _b("HOW TO REPLY TO AN EMAIL"))
+    lines.append("")
+    lines.append("Suppose you want to reply to email " + _b("1️⃣") + ":")
+    lines.append("")
+    lines.append("  1. Open " + _b("Gmail") + " on your phone")
+    lines.append("  2. Tap " + _b("✏️ Compose") + " (new email)")
+    lines.append("  3. " + _b("To:") + "  yourself  " + _i("(jignesh.patel@armeeinfotech.com)"))
+    lines.append("  4. " + _b("Subject:") + "  <code>BOT-REPLY-1</code>")
+    lines.append("     " + _i("(change 1 to the email number you want)"))
+    lines.append("  5. " + _b("Body:") + "  write your reply message")
+    lines.append("  6. " + _b("Send") + " — bot sends your reply next hour ✅")
+    lines.append("")
+    lines.append(_i("Example: to reply to email 3️⃣, use Subject: BOT-REPLY-3"))
 
     full_message = "\n".join(lines)
 
-    # Truncate if somehow too long (shouldn't happen for ≤25 emails)
-    if len(full_message) > WA_MAX_CHARS:
-        full_message = full_message[:WA_MAX_CHARS - 50] + "\n\n_[message truncated]_"
+    # Split if too long (Telegram limit ~4096)
+    if len(full_message) > TG_MAX_CHARS:
+        full_message = full_message[:TG_MAX_CHARS - 80] + "\n\n" + _i("[message truncated — too many emails]")
 
     return full_message
 
 
-# ─── Sender ───────────────────────────────────────────────────────────────────
+def format_no_emails_message(from_time: str, to_time: str) -> str:
+    """Message sent when there are no new emails this hour."""
+    lines = [
+        "📧 " + _b("GMAIL HOURLY SUMMARY"),
+        f"🕐 {_b(from_time)}  →  {_b(to_time)}",
+        "",
+        "✅ " + _b("No new emails this hour."),
+        _i("Bot is running normally. Next check in 1 hour."),
+    ]
+    return "\n".join(lines)
 
-def send_whatsapp(message: str, phone: str = None, apikey: str = None) -> bool:
-    """
-    Send a WhatsApp message via CallMeBot API.
-    Returns True on success, False on failure.
-    """
-    phone  = (phone  or WHATSAPP_PHONE).replace(" ", "").replace("-", "")
-    apikey = apikey  or CALLMEBOT_API_KEY
 
-    if not phone:
-        print("  [WA ERROR] WHATSAPP_PHONE is not configured.")
-        return False
-    if not apikey:
-        print("  [WA ERROR] CALLMEBOT_API_KEY is not configured. "
-              "Run CallMeBot activation first (see setup_guide.md).")
-        return False
+# ─── Legacy WhatsApp sender (unused, kept for reference) ─────────────────────
 
-    # URL-encode the message text
-    encoded = urllib.parse.quote(message)
-    url = f"{CALLMEBOT_URL}?phone={phone}&text={encoded}&apikey={apikey}"
-
-    for attempt in range(1, 4):   # up to 3 attempts
-        try:
-            resp = requests.get(url, timeout=30)
-            if resp.status_code == 200:
-                print(f"  [WA] ✅ Message sent to {phone} (attempt {attempt})")
-                return True
-            else:
-                print(f"  [WA] Attempt {attempt}: HTTP {resp.status_code} – {resp.text[:200]}")
-        except requests.exceptions.Timeout:
-            print(f"  [WA] Attempt {attempt}: request timed out.")
-        except Exception as e:
-            print(f"  [WA] Attempt {attempt}: {e}")
-
-        if attempt < 3:
-            time.sleep(5)   # wait before retry
-
-    print("  [WA] ❌ All 3 attempts failed.")
-    return False
+def send_whatsapp(message: str) -> bool:
+    """Not used — bot uses Telegram. Kept to avoid import errors."""
+    print("  [WA] send_whatsapp() called but Telegram is used instead.")
+    from telegram_sender import send_telegram
+    return send_telegram(message)

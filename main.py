@@ -63,7 +63,7 @@ def run():
     from state_manager    import load_state, save_state, get_since_datetime
     from gmail_reader     import fetch_emails
     from email_summarizer import summarize_emails
-    from whatsapp_sender  import format_whatsapp_message
+    from whatsapp_sender  import format_whatsapp_message, format_no_emails_message
     from telegram_sender  import send_telegram
     from reply_handler    import check_and_process_replies
 
@@ -121,8 +121,11 @@ def run():
 
     if not emails:
         print(f"  No new emails since {_fmt_ist(since_dt)} IST.")
+        # Always notify so you know the bot ran (even with no emails)
+        ping = format_no_emails_message(_fmt_ist(since_dt), _fmt_ist(now_utc))
+        send_telegram(ping)
         save_state(state)
-        _separator("Done — No emails to report.")
+        _separator("Done — No new emails this hour.")
         return
 
     print(f"  {len(emails)} new email(s) found.")

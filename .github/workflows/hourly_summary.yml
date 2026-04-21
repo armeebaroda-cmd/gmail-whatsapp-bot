@@ -4,12 +4,13 @@
 #  Uses Telegram Bot API (FREE, works in India, no restrictions)
 # ============================================================
 
-name: Gmail WhatsApp Hourly Summary
+name: Gmail Telegram Hourly Summary
 
 on:
-  # ── Automatic: every hour at :30 past (UTC) ──────────────
+  # ── Automatic: top of every hour (UTC) ───────────────────
+  # IST = UTC+5:30, so UTC 00:00 = IST 05:30 AM, etc.
   schedule:
-    - cron: '30 * * * *'
+    - cron: '0 * * * *'
 
   # ── Manual: click "Run workflow" in GitHub Actions UI ────
   workflow_dispatch:
