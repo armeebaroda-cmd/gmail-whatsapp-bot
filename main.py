@@ -95,11 +95,11 @@ def run():
                 print(f"  Sent {len(reply_results)} reply(ies).")
                 for r in reply_results:
                     confirm = (
-                        f"✅ *Reply Sent*\n"
+                        f"✅ <b>Reply Sent</b>\n"
                         f"Email #{r['index']}: {r['subject'][:60]}\n"
                         f"To: {r['to']}"
                     )
-                    send_whatsapp(confirm)
+                    send_telegram(confirm)
             else:
                 print("  No BOT-REPLY emails found in inbox.")
         except Exception as e:
@@ -138,21 +138,21 @@ def run():
     # Store summaries in state for reply mapping on next run
     state["pending_emails"] = summaries
 
-    # ── 6. Build & Send WhatsApp Message ─────────────────────────────────────
-    _separator("5 / 5  Send WhatsApp Summary")
+    # ── 6. Build & Send Telegram Message ────────────────────────────────────
+    _separator("5 / 5  Send Telegram Summary")
     from_time = _fmt_ist(since_dt)
     to_time   = _fmt_ist(now_utc)
 
     message = format_whatsapp_message(summaries, from_time, to_time)
 
-    print("\n┌── WhatsApp Message Preview ──────────────────────┐")
+    print("\n┌── Telegram Message Preview ───────────────────────┐")
     for line in message.splitlines()[:20]:
         print(f"│ {line}")
     if message.count("\n") > 20:
         print("│ … [truncated for preview] …")
     print("└───────────────────────────────────────────────────┘\n")
 
-    success = send_whatsapp(message)
+    success = send_telegram(message)
 
     # ── 7. Save State ─────────────────────────────────────────────────────────
     save_state(state)
@@ -183,23 +183,21 @@ def test_gmail():
         sys.exit(1)
 
 
-def test_whatsapp():
-    """Send a test WhatsApp message to verify CallMeBot setup."""
-    _separator("TEST: WhatsApp via CallMeBot")
-    from whatsapp_sender import send_whatsapp
-
+def test_telegram():
+    """Send a test Telegram message to verify bot setup."""
+    _separator("TEST: Telegram Bot")
+    from telegram_sender import send_telegram
     msg = (
-        "🤖 *Gmail Bot — Test Message*\n"
-        "━━━━━━━━━━━━━━━━━━━━\n"
-        "✅ Setup is working correctly!\n"
-        "You will receive Gmail summaries every hour.\n"
-        "━━━━━━━━━━━━━━━━━━━━"
+        "🤖 <b>Gmail Bot — Test Message</b>\n"
+        "━━━━━━━━━━━━━━━━━━━━━━\n"
+        "✅ Telegram setup is working correctly!\n"
+        "You will receive Gmail summaries every hour."
     )
-    success = send_whatsapp(msg)
+    success = send_telegram(msg)
     if success:
-        print("\n✅ Test WhatsApp sent! Check your phone.")
+        print("\n✅ Test Telegram message sent! Check your Telegram app.")
     else:
-        print("\n❌ WhatsApp test failed. Check CALLMEBOT_API_KEY and WHATSAPP_PHONE.")
+        print("\n❌ Telegram test failed. Check TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID.")
         sys.exit(1)
 
 
