@@ -1,8 +1,10 @@
 import urllib.request
 import json
+import os
 
 url = "https://api.github.com/repos/armeebaroda-cmd/gmail-whatsapp-bot/actions/runs?per_page=5"
-headers = {"Authorization": "Bearer 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"}
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+headers = {"Authorization": f"Bearer {GITHUB_TOKEN}"}
 
 req = urllib.request.Request(url, headers=headers)
 try:
