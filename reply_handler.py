@@ -12,6 +12,7 @@ import email
 import email.header
 import smtplib
 import re
+import time
 from email.mime.multipart import MIMEMultipart
 from email.mime.text      import MIMEText
 
@@ -105,8 +106,18 @@ def check_and_process_replies(pending_emails: list) -> list:
         return results
 
     try:
-        mail = imaplib.IMAP4_SSL(GMAIL_IMAP_HOST, GMAIL_IMAP_PORT)
-        mail.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+        mail = None
+        for attempt in range(1, 4):
+            try:
+                mail = imaplib.IMAP4_SSL(GMAIL_IMAP_HOST, GMAIL_IMAP_PORT, timeout=30)
+                mail.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+                break
+            except Exception as e:
+                print(f"    [WARN] IMAP connection attempt {attempt} failed: {e}")
+                if attempt == 3:
+                    raise
+                time.sleep(5)
+                
         mail.select("INBOX")
 
         # Search for unread BOT-REPLY-N emails (from yourself)

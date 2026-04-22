@@ -11,6 +11,7 @@ from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 
 from config import GMAIL_ADDRESS, GMAIL_APP_PASSWORD, GMAIL_IMAP_HOST, GMAIL_IMAP_PORT
+import time
 
 
 # ─── HTML Stripper ─────────────────────────────────────────────────────────────
@@ -118,8 +119,19 @@ def fetch_emails(since_dt: datetime) -> list:
     print(f"  Connecting to {GMAIL_IMAP_HOST}:{GMAIL_IMAP_PORT} …")
 
     try:
-        mail = imaplib.IMAP4_SSL(GMAIL_IMAP_HOST, GMAIL_IMAP_PORT)
-        mail.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+        # Wrap IMAP connection in a retry loop to prevent random cloud networking hangs
+        mail = None
+        for attempt in range(1, 4):
+            try:
+                mail = imaplib.IMAP4_SSL(GMAIL_IMAP_HOST, GMAIL_IMAP_PORT, timeout=30)
+                mail.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+                break
+            except Exception as e:
+                print(f"  [WARN] IMAP connection attempt {attempt} failed: {e}")
+                if attempt == 3:
+                    raise
+                time.sleep(5)
+                
         mail.select("INBOX")
 
         # IMAP SINCE is date-only; we filter by exact time in Python below

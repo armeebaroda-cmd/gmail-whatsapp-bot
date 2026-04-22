@@ -1,0 +1,18 @@
+
+--- send-summary/5_Run Gmail Telegram Summary Bot.txt ---
+﻿2026-04-22T06:24:23.9268279Z ##[group]Run python main.py
+2026-04-22T06:24:23.9268621Z [36;1mpython main.py[0m
+2026-04-22T06:24:23.9293023Z shell: /usr/bin/bash -e {0}
+2026-04-22T06:24:23.9293302Z env:
+2026-04-22T06:24:23.9293590Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-22T06:24:23.9294322Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-04-22T06:24:23.9294771Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-22T06:24:23.9295171Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-22T06:24:23.9295561Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-04-22T06:24:23.9295950Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-04-22T06:24:23.9296652Z   GMAIL_ADDRESS: ***
+2026-04-22T06:24:23.9296947Z   GMAIL_APP_PASSWORD: ***
+2026-04-22T06:24:23.9297328Z   TELEGRAM_BOT_TOKEN: ***
+2026-04-22T06:24:23.9297584Z   TELEGRAM_CHAT_ID: ***
+2026-04-22T06:24:23.9297828Z ##[endgroup]
+2026-04-22T06:34:29.1222593Z ##[error]The operation was canceled.

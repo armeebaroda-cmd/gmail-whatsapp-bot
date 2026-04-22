@@ -7,10 +7,10 @@
 name: Gmail Telegram Hourly Summary
 
 on:
-  # ── Automatic: top of every hour (UTC) ───────────────────
-  # IST = UTC+5:30, so UTC 00:00 = IST 05:30 AM, etc.
+  # ── Automatic: 7 minutes past the hour (UTC) ───────────────────
+  # IST = UTC+5:30, so UTC 00:07 = IST 05:37 AM, etc.
   schedule:
-    - cron: '0 * * * *'
+    - cron: '7 * * * *'
 
   # ── Manual: click "Run workflow" in GitHub Actions UI ────
   workflow_dispatch:
@@ -45,6 +45,7 @@ jobs:
       # 4. Run the bot
       - name: Run Gmail Telegram Summary Bot
         env:
+          PYTHONUNBUFFERED:    "1"
           GMAIL_ADDRESS:       ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD:  ${{ secrets.GMAIL_APP_PASSWORD }}
           TELEGRAM_BOT_TOKEN:  ${{ secrets.TELEGRAM_BOT_TOKEN }}
