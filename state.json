@@ -1,29 +1,29 @@
 {
-  "last_processed": "2026-04-22T20:14:56.560684+00:00",
+  "last_processed": "2026-04-22T23:35:31.236528+00:00",
   "pending_emails": [
     {
       "index": 1,
-      "from": "Yashukumar Ck <yashukumar.ck6@wipro.com>",
-      "from_name": "Yashukumar Ck",
-      "subject": "IBL Critical SLA Deviated Calls-Armee",
+      "from": "jignesh.patel@armeeinfotech.com",
+      "from_name": "jignesh.patel@armeeinfotech.com",
+      "subject": "[Acer Automation ALERT] FATAL ERROR: HTTPConnectionPool(host='localhost', port=62254): Max retries exceeded with url: /session/edb6b7f68f \u2013 23-Apr-2026",
       "priority": "URGENT",
-      "action_text": "Please find the below critical SLA deviated calls need to close tomorrow on Priority without deviation",
-      "message_id": "<4188B807-73C7-49B6-8EA6-099534ED79A0@wipro.com>",
-      "reply_to": "Yashukumar Ck <yashukumar.ck6@wipro.com>",
-      "date": "2026-04-22T17:34:41+00:00",
-      "uid": "235352"
+      "action_text": "Acer Call Logging Automation \u2013 Error Report",
+      "message_id": "<69e94e85.170a0220.34f586.e569@mx.google.com>",
+      "reply_to": "jignesh.patel@armeeinfotech.com",
+      "date": "2026-04-22T15:41:09-07:00",
+      "uid": "235353"
     },
     {
       "index": 2,
       "from": "jignesh.patel@armeeinfotech.com",
       "from_name": "jignesh.patel@armeeinfotech.com",
-      "subject": "[Acer Automation SUCCESS] 19 cases uploaded \u2013 22-Apr-2026",
-      "priority": "INFO",
-      "action_text": "No action needed.",
-      "message_id": "<69e8ff93.170a0220.36d469.d62a@mx.google.com>",
+      "subject": "[Acer Automation ALERT] Process completed with FAILED status \u2013 23-Apr-2026",
+      "priority": "URGENT",
+      "action_text": "Acer Call Logging Automation \u2013 Error Report",
+      "message_id": "<69e94e9a.050a0220.1bfa3b.e63a@mx.google.com>",
       "reply_to": "jignesh.patel@armeeinfotech.com",
-      "date": "2026-04-22T10:04:19-07:00",
-      "uid": "235351"
+      "date": "2026-04-22T15:41:30-07:00",
+      "uid": "235354"
     }
   ]
 }
