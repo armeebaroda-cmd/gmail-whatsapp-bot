@@ -1,29 +1,29 @@
 {
-  "last_processed": "2026-04-23T20:16:11.711880+00:00",
+  "last_processed": "2026-04-23T23:32:37.080525+00:00",
   "pending_emails": [
     {
       "index": 1,
-      "from": "\"Mehta, Dhawal\" <Dhawal.Mehta@acer.com>",
-      "from_name": "Mehta, Dhawal",
-      "subject": "RE: APPROVAL REQUIRED FOR MOTHERBOARD ( CASE ID :- 1489271C - AIRPORT\r\n AUTHORITY OF INDIA - ARMEE - BARODA )",
+      "from": "\"Bank of India Mutual Fund\" <boimf.txn@kfintech.com>",
+      "from_name": "Bank of India Mutual Fund",
+      "subject": "SIP Transaction confirmation",
       "priority": "ACTION",
-      "action_text": "Rakesh 2 times mbd request cancelled",
-      "message_id": "<SEZPR03MB84079ACC810C8091EAA2F146EC2A2@SEZPR03MB8407.apcprd03.prod.outlook.com>",
-      "reply_to": "\"Mehta, Dhawal\" <Dhawal.Mehta@acer.com>",
-      "date": "2026-04-23T17:59:56+00:00",
-      "uid": "235723"
+      "action_text": "Dear ANKITABEN JIGNESHBHAI PATEL , We thank you for your interest in our scheme",
+      "message_id": "<69eaaa56.050a0220.29a5d1.1753SMTPIN_ADDED_BROKEN@mx.google.com>",
+      "reply_to": "\"Bank of India Mutual Fund\" <boimf.txn@kfintech.com>",
+      "date": "2026-04-24T04:55:08+05:30",
+      "uid": "235725"
     },
     {
       "index": 2,
-      "from": "\"Dharmendra Vaghela\" <dharmendra@armee.in>",
-      "from_name": "Dharmendra Vaghela",
-      "subject": "RE: POC - ICICI Oncall and Hardware Engineer || Armee 22th Apr",
-      "priority": "ACTION",
-      "action_text": "IT infra Resolution SLA P3 & C4",
-      "message_id": "<006f01dcd349$9a83bb30$cf8b3190$@armee.in>",
-      "reply_to": "\"Dharmendra Vaghela\" <dharmendra@armee.in>",
-      "date": "2026-04-23T23:19:52+05:30",
-      "uid": "235722"
+      "from": "\"UNION Mutual Fund\" <enq_UK@camsonline.com>",
+      "from_name": "UNION Mutual Fund",
+      "subject": "Folio 11160447 - Processing of Purchase in Union Mutual Fund",
+      "priority": "INFO",
+      "action_text": "No action needed.",
+      "message_id": "<69ea931a.170a0220.3dbda1.7e5bSMTPIN_ADDED_MISSING@mx.google.com>",
+      "reply_to": "\"UNION Mutual Fund\" <enq_UK@camsonline.com>",
+      "date": "2026-04-24T03:16:00+05:30",
+      "uid": "235724"
     }
   ]
 }
