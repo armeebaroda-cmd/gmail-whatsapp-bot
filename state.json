@@ -1,53 +1,41 @@
 {
-  "last_processed": "2026-04-24T18:07:54.439913+00:00",
+  "last_processed": "2026-04-24T21:35:57.588713+00:00",
   "pending_emails": [
     {
       "index": 1,
-      "from": "Yashukumar Ck <yashukumar.ck6@wipro.com>",
-      "from_name": "Yashukumar Ck",
-      "subject": "Re: WO0000002292803-- Not completed Reopened by IT",
+      "from": "ICICI Bank <services@custcomm.icicibank.com>",
+      "from_name": "ICICI Bank",
+      "subject": "KYC Fraud Alert!",
       "priority": "URGENT",
-      "action_text": "Need to run hardware diagnostics if no hardware error then need to update BIOS",
-      "message_id": "<F115E8D3-0CB8-4EBB-832D-F54DCFF3BC0D@wipro.com>",
-      "reply_to": "Yashukumar Ck <yashukumar.ck6@wipro.com>",
-      "date": "2026-04-24T16:15:11+00:00",
-      "uid": "236096"
+      "action_text": "Don\u2019t fall for the KYC fraud",
+      "message_id": "<97567694513131369@delivery.custcomm.icicibank.com>",
+      "reply_to": "ICICI Bank <services@custcomm.icicibank.com>",
+      "date": "2026-04-24T23:53:23+05:30",
+      "uid": "236099"
     },
     {
       "index": 2,
-      "from": "Yashukumar Ck <yashukumar.ck6@wipro.com>",
-      "from_name": "Yashukumar Ck",
-      "subject": "IndusInd Bank || ON-Call & New PC installation || Windows 11 25H2-\r\n Need to Deploy From  Monday (27th April 2026)",
-      "priority": "ACTION",
-      "action_text": "The New OS Version Win 11(25H2) has been introduced,  Kindly  deploy win 11 25H2  only from Monday(27th Apr ) for all Ne",
-      "message_id": "<4C2187D5-2C3D-4879-9D93-8DEB883EA370@wipro.com>",
-      "reply_to": "Yashukumar Ck <yashukumar.ck6@wipro.com>",
-      "date": "2026-04-24T16:51:43+00:00",
-      "uid": "236097"
+      "from": "jignesh.patel@armeeinfotech.com",
+      "from_name": "jignesh.patel@armeeinfotech.com",
+      "subject": "[Acer Automation SUCCESS] 18 cases uploaded \u2013 25-Apr-2026",
+      "priority": "INFO",
+      "action_text": "No action needed.",
+      "message_id": "<69ebb984.170a0220.b82ce.08bd@mx.google.com>",
+      "reply_to": "jignesh.patel@armeeinfotech.com",
+      "date": "2026-04-24T11:42:12-07:00",
+      "uid": "236100"
     },
     {
       "index": 3,
-      "from": "noreply-spamdigest via ArMee TL <tl@armeeinfotech.com>",
-      "from_name": "noreply-spamdigest via ArMee TL",
-      "subject": "Moderator's spam report for tl@armeeinfotech.com",
+      "from": "jignesh.patel@armeeinfotech.com",
+      "from_name": "jignesh.patel@armeeinfotech.com",
+      "subject": "[Acer Automation SUCCESS] 19 cases uploaded \u2013 25-Apr-2026",
       "priority": "INFO",
       "action_text": "No action needed.",
-      "message_id": "<GDS-a89bd6f4-a5b1-43f5-97fb-38750d767461@google.com>",
-      "reply_to": "noreply-spamdigest@google.com",
-      "date": "2026-04-24T10:50:25-07:00",
-      "uid": "236098"
-    },
-    {
-      "index": 4,
-      "from": "\"Mehta, Dhawal\" <Dhawal.Mehta@acer.com>",
-      "from_name": "Mehta, Dhawal",
-      "subject": "RE: Acer Part Order PO : 002 dated 17-04-2026",
-      "priority": "INFO",
-      "action_text": "No action needed.",
-      "message_id": "<SEZPR03MB8407C0DC87CA61B95F80E192EC2B2@SEZPR03MB8407.apcprd03.prod.outlook.com>",
-      "reply_to": "\"Mehta, Dhawal\" <Dhawal.Mehta@acer.com>",
-      "date": "2026-04-24T15:54:09+00:00",
-      "uid": "236095"
+      "message_id": "<69ebc19f.050a0220.1bfa3b.8746@mx.google.com>",
+      "reply_to": "jignesh.patel@armeeinfotech.com",
+      "date": "2026-04-24T12:16:47-07:00",
+      "uid": "236101"
     }
   ]
 }
