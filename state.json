@@ -1,41 +1,29 @@
 {
-  "last_processed": "2026-04-24T21:35:57.588713+00:00",
+  "last_processed": "2026-04-25T00:07:26.011490+00:00",
   "pending_emails": [
     {
       "index": 1,
-      "from": "ICICI Bank <services@custcomm.icicibank.com>",
-      "from_name": "ICICI Bank",
-      "subject": "KYC Fraud Alert!",
+      "from": "jignesh.patel@armeeinfotech.com",
+      "from_name": "jignesh.patel@armeeinfotech.com",
+      "subject": "[Acer Automation ALERT] FATAL ERROR: Could not click 'New Open Calls': HTTPConnectionPool(host='localhost', port=50537): Max retries exce \u2013 25-Apr-2026",
       "priority": "URGENT",
-      "action_text": "Don\u2019t fall for the KYC fraud",
-      "message_id": "<97567694513131369@delivery.custcomm.icicibank.com>",
-      "reply_to": "ICICI Bank <services@custcomm.icicibank.com>",
-      "date": "2026-04-24T23:53:23+05:30",
-      "uid": "236099"
+      "action_text": "Acer Call Logging Automation \u2013 Error Report",
+      "message_id": "<69ebf99c.170a0220.2a470d.8b36@mx.google.com>",
+      "reply_to": "jignesh.patel@armeeinfotech.com",
+      "date": "2026-04-24T16:15:40-07:00",
+      "uid": "236102"
     },
     {
       "index": 2,
       "from": "jignesh.patel@armeeinfotech.com",
       "from_name": "jignesh.patel@armeeinfotech.com",
-      "subject": "[Acer Automation SUCCESS] 18 cases uploaded \u2013 25-Apr-2026",
-      "priority": "INFO",
-      "action_text": "No action needed.",
-      "message_id": "<69ebb984.170a0220.b82ce.08bd@mx.google.com>",
+      "subject": "[Acer Automation ALERT] Process completed with FAILED status \u2013 25-Apr-2026",
+      "priority": "URGENT",
+      "action_text": "Acer Call Logging Automation \u2013 Error Report",
+      "message_id": "<69ebf9b1.170a0220.230e6f.4e77@mx.google.com>",
       "reply_to": "jignesh.patel@armeeinfotech.com",
-      "date": "2026-04-24T11:42:12-07:00",
-      "uid": "236100"
-    },
-    {
-      "index": 3,
-      "from": "jignesh.patel@armeeinfotech.com",
-      "from_name": "jignesh.patel@armeeinfotech.com",
-      "subject": "[Acer Automation SUCCESS] 19 cases uploaded \u2013 25-Apr-2026",
-      "priority": "INFO",
-      "action_text": "No action needed.",
-      "message_id": "<69ebc19f.050a0220.1bfa3b.8746@mx.google.com>",
-      "reply_to": "jignesh.patel@armeeinfotech.com",
-      "date": "2026-04-24T12:16:47-07:00",
-      "uid": "236101"
+      "date": "2026-04-24T16:16:01-07:00",
+      "uid": "236103"
     }
   ]
 }
