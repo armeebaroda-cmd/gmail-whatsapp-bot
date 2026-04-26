@@ -1,65 +1,29 @@
 {
-  "last_processed": "2026-04-26T14:11:10.927017+00:00",
+  "last_processed": "2026-04-26T17:26:01.811955+00:00",
   "pending_emails": [
     {
       "index": 1,
-      "from": "\"Girish Mayavanshi\" <projects@armeeinfotech.com>",
-      "from_name": "Girish Mayavanshi",
-      "subject": "RE: AIL Printer RC - 2026 - Canon Printer installation ( New Delivery update )",
+      "from": "krunali infoservices <krunaliinfoservices@gmail.com>",
+      "from_name": "krunali infoservices",
+      "subject": "Fwd: Request for Release of Pending Payment \u2013 Revised Bill KI025-056",
       "priority": "ACTION",
-      "action_text": "Ref:-  ALL RC PRINTER & SCANNERS // ArMee Ticket Number: Installation",
-      "message_id": "<000001dcd568$5e3db650$1ab922f0$@armeeinfotech.com>",
-      "reply_to": "\"Girish Mayavanshi\" <projects@armeeinfotech.com>",
-      "date": "2026-04-26T16:05:10+05:30",
-      "uid": "236317"
+      "action_text": "---------- Forwarded message ---------",
+      "message_id": "<CAL_oUbeDrD0BH-nDiY4Ei+X_OEwTj6mjm5YKOmq8GiSuf67MQg@mail.gmail.com>",
+      "reply_to": "krunali infoservices <krunaliinfoservices@gmail.com>",
+      "date": "2026-04-26T19:41:52+05:30",
+      "uid": "236322"
     },
     {
       "index": 2,
-      "from": "\"Girish Mayavanshi\" <projects@armeeinfotech.com>",
-      "from_name": "Girish Mayavanshi",
-      "subject": "RE: NEW RC DESKTOP DELIVERY- 2026",
+      "from": "krunali infoservices <krunaliinfoservices@gmail.com>",
+      "from_name": "krunali infoservices",
+      "subject": "Fwd: Pending Payment Reminder for 9 February 2026",
       "priority": "ACTION",
-      "action_text": "Dear All,   (New Delivery Update)",
-      "message_id": "<000901dcd56b$7c5d52a0$7517f7e0$@armeeinfotech.com>",
-      "reply_to": "\"Girish Mayavanshi\" <projects@armeeinfotech.com>",
-      "date": "2026-04-26T16:27:29+05:30",
-      "uid": "236318"
-    },
-    {
-      "index": 3,
-      "from": "\"Microsoft Outlook\" <jignesh.patel@armeeinfotech.com>",
-      "from_name": "Microsoft Outlook",
-      "subject": "Microsoft Outlook Test Message",
-      "priority": "INFO",
-      "action_text": "No action needed.",
-      "message_id": "<69edf717.170a0220.53337.1ef2@mx.google.com>",
-      "reply_to": "\"Microsoft Outlook\" <jignesh.patel@armeeinfotech.com>",
-      "date": "2026-04-26T04:29:27-07:00",
-      "uid": "236321"
-    },
-    {
-      "index": 4,
-      "from": "Google <no-reply@accounts.google.com>",
-      "from_name": "Google",
-      "subject": "Security alert",
-      "priority": "INFO",
-      "action_text": "No action needed.",
-      "message_id": "<0my7aB1ap02X3MJ7q5u7qg@notifications.google.com>",
-      "reply_to": "Google <no-reply@accounts.google.com>",
-      "date": "2026-04-26T11:26:46+00:00",
-      "uid": "236319"
-    },
-    {
-      "index": 5,
-      "from": "Google <no-reply@accounts.google.com>",
-      "from_name": "Google",
-      "subject": "Security alert",
-      "priority": "INFO",
-      "action_text": "No action needed.",
-      "message_id": "<9RjBUzzEQcfN7-mEOx19_g@notifications.google.com>",
-      "reply_to": "Google <no-reply@accounts.google.com>",
-      "date": "2026-04-26T11:28:55+00:00",
-      "uid": "236320"
+      "action_text": "Please update for this payment",
+      "message_id": "<CAL_oUbfoNpLCQo+pR+hAQ1Ng-JMEj-dRqoH0Ymnwe5Rwae0zuw@mail.gmail.com>",
+      "reply_to": "krunali infoservices <krunaliinfoservices@gmail.com>",
+      "date": "2026-04-26T19:42:43+05:30",
+      "uid": "236323"
     }
   ]
 }
