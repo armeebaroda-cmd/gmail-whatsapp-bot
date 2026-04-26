@@ -1,29 +1,17 @@
 {
-  "last_processed": "2026-04-26T17:26:01.811955+00:00",
+  "last_processed": "2026-04-26T20:02:30.661614+00:00",
   "pending_emails": [
     {
       "index": 1,
-      "from": "krunali infoservices <krunaliinfoservices@gmail.com>",
-      "from_name": "krunali infoservices",
-      "subject": "Fwd: Request for Release of Pending Payment \u2013 Revised Bill KI025-056",
+      "from": "Rashmi N <Rashmi.N1.ext@wipro.com>",
+      "from_name": "Rashmi N",
+      "subject": "IBL On Calls and Installation-Gujrat Armee- Apr 27th 2026",
       "priority": "ACTION",
-      "action_text": "---------- Forwarded message ---------",
-      "message_id": "<CAL_oUbeDrD0BH-nDiY4Ei+X_OEwTj6mjm5YKOmq8GiSuf67MQg@mail.gmail.com>",
-      "reply_to": "krunali infoservices <krunaliinfoservices@gmail.com>",
-      "date": "2026-04-26T19:41:52+05:30",
-      "uid": "236322"
-    },
-    {
-      "index": 2,
-      "from": "krunali infoservices <krunaliinfoservices@gmail.com>",
-      "from_name": "krunali infoservices",
-      "subject": "Fwd: Pending Payment Reminder for 9 February 2026",
-      "priority": "ACTION",
-      "action_text": "Please update for this payment",
-      "message_id": "<CAL_oUbfoNpLCQo+pR+hAQ1Ng-JMEj-dRqoH0Ymnwe5Rwae0zuw@mail.gmail.com>",
-      "reply_to": "krunali infoservices <krunaliinfoservices@gmail.com>",
-      "date": "2026-04-26T19:42:43+05:30",
-      "uid": "236323"
+      "action_text": "Please find the below current pending calls and update and share the planning",
+      "message_id": "<KL1PR0302MB5316A449D56A8EF2A27410D7FC292@KL1PR0302MB5316.apcprd03.prod.outlook.com>",
+      "reply_to": "Rashmi N <Rashmi.N1.ext@wipro.com>",
+      "date": "2026-04-26T18:03:32+00:00",
+      "uid": "236324"
     }
   ]
 }
