@@ -1,41 +1,29 @@
 {
-  "last_processed": "2026-04-26T00:01:54.936645+00:00",
+  "last_processed": "2026-04-26T06:31:30.706159+00:00",
   "pending_emails": [
     {
       "index": 1,
-      "from": "<surat.coor@armeeinfotech.com>",
-      "from_name": "<surat.coor@armeeinfotech.com>",
-      "subject": "AMC Defective Part dispatch today",
-      "priority": "ACTION",
-      "action_text": "Please find the attached AMC defective spare summary as same spare send to",
-      "message_id": "<000001dcd4bf$e5ef75b0$b1ce6110$@armeeinfotech.com>",
-      "reply_to": "<surat.coor@armeeinfotech.com>",
-      "date": "2026-04-25T19:59:14+05:30",
-      "uid": "236311"
+      "from": "\"GCSD, ACER\" <ACER.GCSD@aceremail.com>",
+      "from_name": "GCSD, ACER",
+      "subject": "Acer GCSD weekly news(19/04/2026-26/04/2026)",
+      "priority": "INFO",
+      "action_text": "No action needed.",
+      "message_id": "<0106019dc7dcf871-fe923be1-72bf-4039-a843-5d5be541a3b3-000000@ap-northeast-1.amazonses.com>",
+      "reply_to": "\"GCSD, ACER\" <ACER.GCSD@aceremail.com>",
+      "date": "2026-04-26T03:37:20+00:00",
+      "uid": "236314"
     },
     {
       "index": 2,
-      "from": "<bindiya@armee.in>",
-      "from_name": "<bindiya@armee.in>",
-      "subject": "Complain Sheet - 25.04.26",
-      "priority": "ACTION",
-      "action_text": "Enclosed pls find the attachment of today complain sheet",
-      "message_id": "<089b01dcd4c0$68d5e590$3a81b0b0$@armee.in>",
-      "reply_to": "<bindiya@armee.in>",
-      "date": "2026-04-25T20:02:53+05:30",
-      "uid": "236312"
-    },
-    {
-      "index": 3,
-      "from": "Mail Delivery Subsystem <mailer-daemon@googlemail.com>",
-      "from_name": "Mail Delivery Subsystem",
-      "subject": "Delivery Status Notification (Failure)",
+      "from": "LinkedIn <notifications-noreply@linkedin.com>",
+      "from_name": "LinkedIn",
+      "subject": "You appeared in recent searches",
       "priority": "INFO",
       "action_text": "No action needed.",
-      "message_id": "<69ecf71e.050a0220.1efeb0.ca56.GMR@mx.google.com>",
-      "reply_to": "Mail Delivery Subsystem <mailer-daemon@googlemail.com>",
-      "date": "2026-04-25T10:17:18-07:00",
-      "uid": "236313"
+      "message_id": "<1774271196.11114567.1777175972356@lor1-app159633.prod.linkedin.com>",
+      "reply_to": "LinkedIn <notifications-noreply@linkedin.com>",
+      "date": "2026-04-26T03:59:32+00:00",
+      "uid": "236315"
     }
   ]
 }
