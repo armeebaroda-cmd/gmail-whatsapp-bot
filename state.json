@@ -1,29 +1,17 @@
 {
-  "last_processed": "2026-04-26T06:31:30.706159+00:00",
+  "last_processed": "2026-04-26T10:09:42.740803+00:00",
   "pending_emails": [
     {
       "index": 1,
-      "from": "\"GCSD, ACER\" <ACER.GCSD@aceremail.com>",
-      "from_name": "GCSD, ACER",
-      "subject": "Acer GCSD weekly news(19/04/2026-26/04/2026)",
-      "priority": "INFO",
-      "action_text": "No action needed.",
-      "message_id": "<0106019dc7dcf871-fe923be1-72bf-4039-a843-5d5be541a3b3-000000@ap-northeast-1.amazonses.com>",
-      "reply_to": "\"GCSD, ACER\" <ACER.GCSD@aceremail.com>",
-      "date": "2026-04-26T03:37:20+00:00",
-      "uid": "236314"
-    },
-    {
-      "index": 2,
-      "from": "LinkedIn <notifications-noreply@linkedin.com>",
-      "from_name": "LinkedIn",
-      "subject": "You appeared in recent searches",
-      "priority": "INFO",
-      "action_text": "No action needed.",
-      "message_id": "<1774271196.11114567.1777175972356@lor1-app159633.prod.linkedin.com>",
-      "reply_to": "LinkedIn <notifications-noreply@linkedin.com>",
-      "date": "2026-04-26T03:59:32+00:00",
-      "uid": "236315"
+      "from": "\"Dharmendra Vaghela\" <dharmendra@armee.in>",
+      "from_name": "Dharmendra Vaghela",
+      "subject": "Approval for New Engineer at Ahmedabad",
+      "priority": "ACTION",
+      "action_text": "As engineers are required for Ahmedabad field, I have hired two engineers as",
+      "message_id": "<000001dcd553$a4951db0$edbf5910$@armee.in>",
+      "reply_to": "\"Dharmendra Vaghela\" <dharmendra@armee.in>",
+      "date": "2026-04-26T13:36:46+05:30",
+      "uid": "236316"
     }
   ]
 }
